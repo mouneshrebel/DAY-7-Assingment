@@ -1,0 +1,602 @@
+
+
+Solving problems using array functions on the rest countries' data (https://restcountries.com/v3.1/all).
+
+ 1.Get all the countries from the Asia continent /region using the Filter function
+
+// XMLHTTPREQUEST is an browser api
+var request = new XMLHttpRequest();
+
+request.open("GET", "https://restcountries.com/v3.1/all")
+request.send();
+
+// GET THE RESPONSE FROM SERVER
+request.onload = function () {
+    var data = JSON.parse(this.responseText);
+    printData(data);
+}
+
+
+
+function printData(data) {
+    if(data.length > 0) {
+       for(let i= 0; i < data.length; i++) {
+           const {asiacontinent = {}, region = '', subregion = '',  }  = data[i];
+           console.log(asiacontinent, region, subregion, );
+       }
+       }
+    }
+}
+
+
+ Asia Western Asia 
+ Asia South-Eastern Asia 
+ Asia Southern Asia 
+ Asia South-Eastern Asia 
+ Asia Eastern Asia 
+ Asia Central Asia 
+ Asia South-Eastern Asia 
+  Asia Western Asia 
+ Asia Central Asia 
+ Asia Southern Asia 
+ Asia Western Asia 
+ Asia Eastern Asia 
+ Asia South-Eastern Asia 
+ Asia Western Asia 
+ Asia Eastern Asia 
+ Asia Central Asia 
+ Asia Western Asia 
+ Asia Southern Asia 
+ Asia Western Asia 
+ Asia Southern Asia 
+ Asia South-Eastern Asia 
+ Asia Western Asia 
+ Asia South-Eastern Asia 
+ Asia Western Asia 
+ Asia South-Eastern Asia 
+ Asia Western Asia 
+ Asia South-Eastern Asia 
+ Asia Western Asia 
+ Asia Eastern Asia 
+ Asia  Southern Asia 
+ Asia Central Asia 
+ Asia Eastern Asia 
+ Asia Southern Asia 
+ Asia Eastern Asia 
+ Asia Central Asia 
+ Asia Eastern Asia 
+ Asia Western Asia 
+ Asia Southern Asia 
+ Asia Eastern Asia 
+ Asia Western Asia 
+ Asia South-Eastern Asia 
+ Asia Western Asia 
+
+
+ **/// Print the following details name, capital, flag using forEach function ///**
+
+-
+CONSOLE 
+"Saint Lucia", ["Castries"], "https://flagcdn.com/lc.svg"
+"Honduras", ["Tegucigalpa"], "https://flagcdn.com/hn.svg"
+"Angola", ["Luanda"], "https://flagcdn.com/ao.svg"
+"Bulgaria", ["Sofia"], "https://flagcdn.com/bg.svg"
+"Mauritania", ["Nouakchott"], "https://flagcdn.com/mr.svg"
+"Bhutan", ["Thimphu"], "https://flagcdn.com/bt.svg"
+"Malaysia", ["Kuala Lumpur"], "https://flagcdn.com/my.svg"
+"Montenegro", ["Podgorica"], "https://flagcdn.com/me.svg"
+"Liberia", ["Monrovia"], "https://flagcdn.com/lr.svg"
+"Peru", ["Lima"], "https://flagcdn.com/pe.svg"
+"Norfolk Island", ["Kingston"], "https://flagcdn.com/nf.svg"
+"Uruguay", ["Montevideo"], "https://flagcdn.com/uy.svg"
+"Dominica", ["Roseau"], "https://flagcdn.com/dm.svg"
+"Croatia", ["Zagreb"], "https://flagcdn.com/hr.svg"
+"Mali", ["Bamako"], "https://flagcdn.com/ml.svg"
+"American Samoa", ["Pago Pago"], "https://flagcdn.com/as.svg"
+"Romania", ["Bucharest"], "https://flagcdn.com/ro.svg"
+"North Korea", ["Pyongyang"], "https://flagcdn.com/kp.svg"
+"Guinea", ["Conakry"], "https://flagcdn.com/gn.svg"
+"Northern Mariana Islands", ["Saipan"], "https://flagcdn.com/mp.svg"
+"Vatican City", ["Vatican City"], "https://flagcdn.com/va.svg"
+"Republic of the Congo", ["Brazzaville"], "https://flagcdn.com/cg.svg"
+"Mauritius", ["Port Louis"], "https://flagcdn.com/mu.svg"
+"Greece", ["Athens"], "https://flagcdn.com/gr.svg"
+"Åland Islands", ["Mariehamn"], "https://flagcdn.com/ax.svg"
+"Tajikistan", ["Dushanbe"], "https://flagcdn.com/tj.svg"
+"Tonga", ["Nuku'alofa"], "https://flagcdn.com/to.svg"
+"Isle of Man", ["Douglas"], "https://flagcdn.com/im.svg"
+"Germany", ["Berlin"], "https://flagcdn.com/de.svg"
+"Equatorial Guinea", ["Malabo"], "https://flagcdn.com/gq.svg"
+"Ecuador", ["Quito"], "https://flagcdn.com/ec.svg"
+"Poland", ["Warsaw"], "https://flagcdn.com/pl.svg"
+"Slovenia", ["Ljubljana"], "https://flagcdn.com/si.svg"
+"Brunei", ["Bandar Seri Begawan"], "https://flagcdn.com/bn.svg"
+"Spain", ["Madrid"], "https://flagcdn.com/es.svg"
+"Oman", ["Muscat"], "https://flagcdn.com/om.svg"
+"Puerto Rico", ["San Juan"], "https://flagcdn.com/pr.svg"
+"Ukraine", ["Kyiv"], "https://flagcdn.com/ua.svg"
+"Luxembourg", ["Luxembourg"], "https://flagcdn.com/lu.svg"
+"Belize", ["Belmopan"], "https://flagcdn.com/bz.svg"
+"Costa Rica", ["San José"], "https://flagcdn.com/cr.svg"
+"Kyrgyzstan", ["Bishkek"], "https://flagcdn.com/kg.svg"
+"Maldives", ["Malé"], "https://flagcdn.com/mv.svg"
+"South Sudan", ["Juba"], "https://flagcdn.com/ss.svg"
+"Hungary", ["Budapest"], "https://flagcdn.com/hu.svg"
+"Bahrain", ["Manama"], "https://flagcdn.com/bh.svg"
+"Greenland", ["Nuuk"], "https://flagcdn.com/gl.svg"
+"Anguilla", ["The Valley"], "https://flagcdn.com/ai.svg"
+"Cuba", ["Havana"], "https://flagcdn.com/cu.svg"
+"Papua New Guinea", ["Port Moresby"], "https://flagcdn.com/pg.svg"
+"Finland", ["Helsinki"], "https://flagcdn.com/fi.svg"
+"Sweden", ["Stockholm"], "https://flagcdn.com/se.svg"
+"DR Congo", ["Kinshasa"], "https://flagcdn.com/cd.svg"
+"South Korea", ["Seoul"], "https://flagcdn.com/kr.svg"
+"Christmas Island", ["Flying Fish Cove"], "https://flagcdn.com/cx.svg"
+"Djibouti", ["Djibouti"], "https://flagcdn.com/dj.svg"
+"Libya", ["Tripoli"], "https://flagcdn.com/ly.svg"
+"Philippines", ["Manila"], "https://flagcdn.com/ph.svg"
+"Tanzania", ["Dodoma"], "https://flagcdn.com/tz.svg"
+"Zambia", ["Lusaka"], "https://flagcdn.com/zm.svg"
+"Egypt", ["Cairo"], "https://flagcdn.com/eg.svg"
+"Cayman Islands", ["George Town"], "https://flagcdn.com/ky.svg"
+"Lebanon", ["Beirut"], "https://flagcdn.com/lb.svg"
+"Kosovo", ["Pristina"], "https://flagcdn.com/xk.svg"
+"Montserrat", ["Plymouth"], "https://flagcdn.com/ms.svg"
+"Israel", ["Jerusalem"], "https://flagcdn.com/il.svg"
+"Mexico", ["Mexico City"], "https://flagcdn.com/mx.svg"
+"Samoa", ["Apia"], "https://flagcdn.com/ws.svg"
+"Guyana", ["Georgetown"], "https://flagcdn.com/gy.svg"
+"Burundi", ["Gitega"], "https://flagcdn.com/bi.svg"
+"Ethiopia", ["Addis Ababa"], "https://flagcdn.com/et.svg"
+"Dominican Republic", ["Santo Domingo"], "https://flagcdn.com/do.svg"
+"Hong Kong", ["City of Victoria"], "https://flagcdn.com/hk.svg"
+"Nicaragua", ["Managua"], "https://flagcdn.com/ni.svg"
+"Uzbekistan", ["Tashkent"], "https://flagcdn.com/uz.svg"
+"Palau", ["Ngerulmud"], "https://flagcdn.com/pw.svg"
+"Belgium", ["Brussels"], "https://flagcdn.com/be.svg"
+"Niger", ["Niamey"], "https://flagcdn.com/ne.svg"
+"Qatar", ["Doha"], "https://flagcdn.com/qa.svg"
+"Saudi Arabia", ["Riyadh"], "https://flagcdn.com/sa.svg"
+"Saint Barthélemy", ["Gustavia"], "https://flagcdn.com/bl.svg"
+"Belarus", ["Minsk"], "https://flagcdn.com/by.svg"
+"Fiji", ["Suva"], "https://flagcdn.com/fj.svg"
+"Grenada", ["St. George's"], "https://flagcdn.com/gd.svg"
+"French Guiana", ["Cayenne"], "https://flagcdn.com/gf.svg"
+"Russia", ["Moscow"], "https://flagcdn.com/ru.svg"
+"United States Minor Outlying Islands", ["Washington DC"], "https://flagcdn.com/um.svg"
+"Lithuania", ["Vilnius"], "https://flagcdn.com/lt.svg"
+"Nauru", ["Yaren"], "https://flagcdn.com/nr.svg"
+"Guatemala", ["Guatemala City"], "https://flagcdn.com/gt.svg"
+"Suriname", ["Paramaribo"], "https://flagcdn.com/sr.svg"
+"Turks and Caicos Islands", ["Cockburn Town"], "https://flagcdn.com/tc.svg"
+"Iraq", ["Baghdad"], "https://flagcdn.com/iq.svg"
+"Saint Vincent and the Grenadines", ["Kingstown"], "https://flagcdn.com/vc.svg"
+"Martinique", ["Fort-de-France"], "https://flagcdn.com/mq.svg"
+"France", ["Paris"], "https://flagcdn.com/fr.svg"
+"Canada", ["Ottawa"], "https://flagcdn.com/ca.svg"
+"Saint Pierre and Miquelon", ["Saint-Pierre"], "https://flagcdn.com/pm.svg"
+"Venezuela", ["Caracas"], "https://flagcdn.com/ve.svg"
+"Nigeria", ["Abuja"], "https://flagcdn.com/ng.svg"
+"Nepal", ["Kathmandu"], "https://flagcdn.com/np.svg"
+"Botswana", ["Gaborone"], "https://flagcdn.com/bw.svg"
+"Vanuatu", ["Port Vila"], "https://flagcdn.com/vu.svg"
+"Namibia", ["Windhoek"], "https://flagcdn.com/na.svg"
+"Eswatini", ["Mbabane"], "https://flagcdn.com/sz.svg"
+"Italy", ["Rome"], "https://flagcdn.com/it.svg"
+"Tuvalu", ["Funafuti"], "https://flagcdn.com/tv.svg"
+"Serbia", ["Belgrade"], "https://flagcdn.com/rs.svg"
+"Netherlands", ["Amsterdam"], "https://flagcdn.com/nl.svg"
+"Antigua and Barbuda", ["Saint John's"], "https://flagcdn.com/ag.svg"
+"United Arab Emirates", ["Abu Dhabi"], "https://flagcdn.com/ae.svg"
+"Comoros", ["Moroni"], "https://flagcdn.com/km.svg"
+"Ghana", ["Accra"], "https://flagcdn.com/gh.svg"
+"Iceland", ["Reykjavik"], "https://flagcdn.com/is.svg"
+"Brazil", ["Brasília"], "https://flagcdn.com/br.svg"
+"Algeria", ["Algiers"], "https://flagcdn.com/dz.svg"
+"Latvia", ["Riga"], "https://flagcdn.com/lv.svg"
+"Burkina Faso", ["Ouagadougou"], "https://flagcdn.com/bf.svg"
+"Lesotho", ["Maseru"], "https://flagcdn.com/ls.svg"
+"Guernsey", ["St. Peter Port"], "https://flagcdn.com/gg.svg"
+"Saint Kitts and Nevis", ["Basseterre"], "https://flagcdn.com/kn.svg"
+"Marshall Islands", ["Majuro"], "https://flagcdn.com/mh.svg"
+"Chad", ["N'Djamena"], "https://flagcdn.com/td.svg"
+"Barbados", ["Bridgetown"], "https://flagcdn.com/bb.svg"
+"Cook Islands", ["Avarua"], "https://flagcdn.com/ck.svg"
+"Haiti", ["Port-au-Prince"], "https://flagcdn.com/ht.svg"
+"French Polynesia", ["Papeetē"], "https://flagcdn.com/pf.svg"
+"Cyprus", ["Nicosia"], "https://flagcdn.com/cy.svg"
+"Sri Lanka", ["Sri Jayawardenepura Kotte"], "https://flagcdn.com/lk.svg"
+"Myanmar", ["Naypyidaw"], "https://flagcdn.com/mm.svg"
+"Niue", ["Alofi"], "https://flagcdn.com/nu.svg"
+"Laos", ["Vientiane"], "https://flagcdn.com/la.svg"
+"Denmark", ["Copenhagen"], "https://flagcdn.com/dk.svg"
+"Colombia", ["Bogotá"], "https://flagcdn.com/co.svg"
+"Western Sahara", ["El Aaiún"], "https://flagcdn.com/eh.svg"
+"United States", ["Washington, D.C."], "https://flagcdn.com/us.svg"
+"Heard Island and McDonald Islands", "", "https://flagcdn.com/hm.svg"
+"Syria", ["Damascus"], "https://flagcdn.com/sy.svg"
+"Cambodia", ["Phnom Penh"], "https://flagcdn.com/kh.svg"
+"Malta", ["Valletta"], "https://flagcdn.com/mt.svg"
+"Mozambique", ["Maputo"], "https://flagcdn.com/mz.svg"
+"Benin", ["Porto-Novo"], "https://flagcdn.com/bj.svg"
+"North Macedonia", ["Skopje"], "https://flagcdn.com/mk.svg"
+"Georgia", ["Tbilisi"], "https://flagcdn.com/ge.svg"
+"Saint Helena, Ascension and Tristan da Cunha", ["Jamestown"], "https://flagcdn.com/sh.svg"
+"Falkland Islands", ["Stanley"], "https://flagcdn.com/fk.svg"
+"Sint Maarten", ["Philipsburg"], "https://flagcdn.com/sx.svg"
+"Ivory Coast", ["Yamoussoukro"], "https://flagcdn.com/ci.svg"
+"Micronesia", ["Palikir"], "https://flagcdn.com/fm.svg"
+"Bolivia", ["Sucre"], "https://flagcdn.com/bo.svg"
+"Tokelau", ["Fakaofo"], "https://flagcdn.com/tk.svg"
+"São Tomé and Príncipe", ["São Tomé"], "https://flagcdn.com/st.svg"
+"Portugal", ["Lisbon"], "https://flagcdn.com/pt.svg"
+"Malawi", ["Lilongwe"], "https://flagcdn.com/mw.svg"
+"Aruba", ["Oranjestad"], "https://flagcdn.com/aw.svg"
+"Togo", ["Lomé"], "https://flagcdn.com/tg.svg"
+"Czechia", ["Prague"], "https://flagcdn.com/cz.svg"
+"Thailand", ["Bangkok"], "https://flagcdn.com/th.svg"
+"Yemen", ["Sana'a"], "https://flagcdn.com/ye.svg"
+"Madagascar", ["Antananarivo"], "https://flagcdn.com/mg.svg"
+"Jordan", ["Amman"], "https://flagcdn.com/jo.svg"
+"Bermuda", ["Hamilton"], "https://flagcdn.com/bm.svg"
+"Australia", ["Canberra"], "https://flagcdn.com/au.svg"
+"French Southern and Antarctic Lands", ["Port-aux-Français"], "https://flagcdn.com/tf.svg"
+"Curaçao", ["Willemstad"], "https://flagcdn.com/cw.svg"
+"Austria", ["Vienna"], "https://flagcdn.com/at.svg"
+"Uganda", ["Kampala"], "https://flagcdn.com/ug.svg"
+"Monaco", ["Monaco"], "https://flagcdn.com/mc.svg"
+"Senegal", ["Dakar"], "https://flagcdn.com/sn.svg"
+"Timor-Leste", ["Dili"], "https://flagcdn.com/tl.svg"
+"Kenya", ["Nairobi"], "https://flagcdn.com/ke.svg"
+"Cocos (Keeling) Islands", ["West Island"], "https://flagcdn.com/cc.svg"
+"Zimbabwe", ["Harare"], "https://flagcdn.com/zw.svg"
+"Solomon Islands", ["Honiara"], "https://flagcdn.com/sb.svg"
+"Kiribati", ["South Tarawa"], "https://flagcdn.com/ki.svg"
+"San Marino", ["City of San Marino"], "https://flagcdn.com/sm.svg"
+"South Georgia", ["King Edward Point"], "https://flagcdn.com/gs.svg"
+"Kuwait", ["Kuwait City"], "https://flagcdn.com/kw.svg"
+"Japan", ["Tokyo"], "https://flagcdn.com/jp.svg"
+"Bouvet Island", "", "https://flagcdn.com/bv.svg"
+"Jersey", ["Saint Helier"], "https://flagcdn.com/je.svg"
+"Pakistan", ["Islamabad"], "https://flagcdn.com/pk.svg"
+"Turkmenistan", ["Ashgabat"], "https://flagcdn.com/tm.svg"
+"Paraguay", ["Asunción"], "https://flagcdn.com/py.svg"
+"Réunion", ["Saint-Denis"], "https://flagcdn.com/re.svg"
+"Taiwan", ["Taipei"], "https://flagcdn.com/tw.svg"
+"Iran", ["Tehran"], "https://flagcdn.com/ir.svg"
+"Sierra Leone", ["Freetown"], "https://flagcdn.com/sl.svg"
+"Liechtenstein", ["Vaduz"], "https://flagcdn.com/li.svg"
+"Trinidad and Tobago", ["Port of Spain"], "https://flagcdn.com/tt.svg"
+"Gabon", ["Libreville"], "https://flagcdn.com/ga.svg"
+"Guinea-Bissau", ["Bissau"], "https://flagcdn.com/gw.svg"
+"Estonia", ["Tallinn"], "https://flagcdn.com/ee.svg"
+"Svalbard and Jan Mayen", ["Longyearbyen"], "https://flagcdn.com/sj.svg"
+"Mongolia", ["Ulan Bator"], "https://flagcdn.com/mn.svg"
+"El Salvador", ["San Salvador"], "https://flagcdn.com/sv.svg"
+"Kazakhstan", ["Nur-Sultan"], "https://flagcdn.com/kz.svg"
+"China", ["Beijing"], "https://flagcdn.com/cn.svg"
+"Azerbaijan", ["Baku"], "https://flagcdn.com/az.svg"
+"Guadeloupe", ["Basse-Terre"], "https://flagcdn.com/gp.svg"
+"Afghanistan", ["Kabul"], "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg"
+"Bangladesh", ["Dhaka"], "https://flagcdn.com/bd.svg"
+"United States Virgin Islands", ["Charlotte Amalie"], "https://flagcdn.com/vi.svg"
+"Switzerland", ["Bern"], "https://flagcdn.com/ch.svg"
+"Wallis and Futuna", ["Mata-Utu"], "https://flagcdn.com/wf.svg"
+"British Virgin Islands", ["Road Town"], "https://flagcdn.com/vg.svg"
+"Faroe Islands", ["Tórshavn"], "https://flagcdn.com/fo.svg"
+"Ireland", ["Dublin"], "https://flagcdn.com/ie.svg"
+"India", ["New Delhi"], "https://flagcdn.com/in.svg"
+"Macau", "", "https://flagcdn.com/mo.svg"
+"South Africa", ["Pretoria", "Bloemfontein", "Cape Town"], "https://flagcdn.com/za.svg"
+"Seychelles", ["Victoria"], "https://flagcdn.com/sc.svg"
+"Central African Republic", ["Bangui"], "https://flagcdn.com/cf.svg"
+"Gibraltar", ["Gibraltar"], "https://flagcdn.com/gi.svg"
+"Norway", ["Oslo"], "https://flagcdn.com/no.svg"
+"Moldova", ["Chișinău"], "https://flagcdn.com/md.svg"
+"Morocco", ["Rabat"], "https://flagcdn.com/ma.svg"
+"Mayotte", ["Mamoudzou"], "https://flagcdn.com/yt.svg"
+"Slovakia", ["Bratislava"], "https://flagcdn.com/sk.svg"
+"Cape Verde", ["Praia"], "https://flagcdn.com/cv.svg"
+"Bahamas", ["Nassau"], "https://flagcdn.com/bs.svg"
+"Tunisia", ["Tunis"], "https://flagcdn.com/tn.svg"
+"Saint Martin", ["Marigot"], "https://flagcdn.com/mf.svg"
+"Caribbean Netherlands", ["Kralendijk"], "https://flagcdn.com/bq.svg"
+"Andorra", ["Andorra la Vella"], "https://flagcdn.com/ad.svg"
+"Palestine", ["Ramallah", "Jerusalem"], "https://flagcdn.com/ps.svg"
+"United Kingdom", ["London"], "https://flagcdn.com/gb.svg"
+"Singapore", ["Singapore"], "https://flagcdn.com/sg.svg"
+"Albania", ["Tirana"], "https://flagcdn.com/al.svg"
+"Indonesia", ["Jakarta"], "https://flagcdn.com/id.svg"
+"Panama", ["Panama City"], "https://flagcdn.com/pa.svg"
+"Eritrea", ["Asmara"], "https://flagcdn.com/er.svg"
+"Sudan", ["Khartoum"], "https://flagcdn.com/sd.svg"
+"Cameroon", ["Yaoundé"], "https://flagcdn.com/cm.svg"
+"Armenia", ["Yerevan"], "https://flagcdn.com/am.svg"
+"Pitcairn Islands", ["Adamstown"], "https://flagcdn.com/pn.svg"
+"Antarctica", "", "https://flagcdn.com/aq.svg"
+"Jamaica", ["Kingston"], "https://flagcdn.com/jm.svg"
+
+
+
+
+
+
+
+Print the total population of countries using reduce FUNSTION
+
+// XMLHTTPREQUEST is an browser api
+var request = new XMLHttpRequest();
+
+request.open("GET", "https://restcountries.com/v3.1/all")
+request.send();
+
+// GET THE RESPONSE FROM SERVER
+request.onload = function () {
+    var data = JSON.parse(this.responseText);
+    printData(data);
+}
+
+
+
+function printData(data) {
+    if(data.length > 0) {
+       for(let i= 0; i < data.length; i++) {
+           const {  population = 0 }  = data[i];
+           console.log( population);
+       }
+    }
+}
+
+CONSOLE.LOG
+
+
+84339067
+15893219
+97338583
+2416664
+12952209
+3280815
+19116209
+5084300
+168783
+3000
+271960
+45376763
+183629
+9904608
+32866268
+6927288
+4649660
+771612
+32365998
+621718
+5057677
+32971846
+2302
+3473727
+71991
+4047200
+20250834
+55197
+19286123
+25778815
+13132792
+57557
+451
+5657000
+1265740
+10715549
+29458
+9537642
+105697
+85032
+83240525
+1402985
+17643060
+37950802
+2100126
+437483
+47351567
+5106622
+3194034
+44134693
+632275
+397621
+5094114
+6591600
+540542
+11193729
+9749763
+1701583
+56367
+13452
+11326616
+8947027
+5530719
+10353442
+108407721
+51780579
+2072
+988002
+6871287
+109581085
+59734213
+18383956
+102334403
+65720
+6825442
+1775378
+4922
+9216900
+128932753
+198410
+786559
+11890781
+114963583
+10847904
+7500700
+6624554
+34232050
+18092
+11555997
+24206636
+2881060
+34813867
+4255
+9398861
+896444
+112519
+254541
+144104080
+300
+2794700
+10834
+16858333
+586634
+38718
+40222503
+110947
+378243
+67391582
+38005238
+6069
+28435943
+206139587
+29136808
+2351625
+307150
+2540916
+1160164
+59554023
+11792
+6908224
+16655799
+97928
+9890400
+869595
+31072945
+366425
+212559409
+44700000
+1901548
+20903278
+2142252
+62999
+53192
+59194
+16425859
+287371
+18100
+11402533
+280904
+1207361
+21919000
+54409794
+1470
+7275556
+5831404
+50882884
+510713
+329484123
+0
+17500657
+16718971
+525285
+31255435
+12123198
+2077132
+3714000
+53192
+2563
+40812
+26378275
+115021
+11673029
+1411
+219161
+10305564
+19129955
+106766
+8278737
+10698896
+69799978
+29825968
+27691019
+10203140
+63903
+25687041
+400
+155014
+8917205
+45741000
+39244
+16743930
+1318442
+53771300
+544
+14862927
+686878
+119446
+33938
+30
+4270563
+125836021
+0
+100800
+220892331
+6031187
+7132530
+840974
+23503349
+83992953
+7976985
+38137
+1399491
+2225728
+1967998
+1331057
+2562
+3278292
+6486201
+18754440
+1402112000
+10110116
+400132
+40218234
+164689383
+106290
+8654622
+11750
+30237
+48865
+4994724
+1380004385
+649342
+59308690
+98462
+4829764
+33691
+5379475
+2617820
+36910558
+226915
+5458827
+555988
+393248
+11818618
+38659
+25987
+77265
+4803269
+67215293
+5685807
+2837743
+273523621
+4314768
+5352000
+43849269
+26545864
+2963234
+56
+1000
+2961161
